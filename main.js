@@ -14,8 +14,22 @@ app.get('/expense-list', async (req, res) => {
   res.render('pages/expensesList.ejs', { expenses });
 });
 
+app.get('/expense-list/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  const expenses = await readFile('expenses.json', true);
+  const expense = expenses.find((el) => el.id === id);
+  res.render('pages/expenseDetails.ejs', { expense });
+});
+
 app.get('/create-expense', (req, res) => {
   res.render('pages/expensesCreate.ejs');
+});
+
+app.get('/expense-update/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  const expenses = await readFile('expenses.json', true);
+  const expense = expenses.find((el) => el.id === id);
+  res.render('pages/expenseUpdate.ejs', { expense });
 });
 
 app.get('/', (req, res) => {
