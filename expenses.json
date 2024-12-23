@@ -1,0 +1,12 @@
+[
+  { "id": 6, "category": "qwerty", "price": "123" },
+  { "id": 7, "category": "asd", "price": "123" },
+  { "id": 6, "category": "qwerty", "price": "123" },
+  { "id": 7, "category": "asd", "price": "123" },
+  { "id": 6, "category": "qwerty", "price": "123" },
+  { "id": 7, "category": "asd", "price": "123" },
+  { "id": 6, "category": "qwerty", "price": "123" },
+  { "id": 7, "category": "asd", "price": "123" },
+  { "id": 6, "category": "qwerty", "price": "123" },
+  { "id": 7, "category": "asd", "price": "123" }
+]
