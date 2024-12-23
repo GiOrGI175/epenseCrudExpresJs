@@ -9,17 +9,18 @@
   <body>
     <h1>all expenses</h1>
     <a href="/create-expense">Crate new Expense</a>
-    <% expenses.forEach(el => { %>
-    <div class="card">
-      <h2>Id: <%= el.id %></h2>
-      <h2>Category: <%= el.category %></h2>
-      <h2>Price: <%= el.price %></h2>
-      <a href="/expense-list/<%= el.id %>">Show details</a>
-      <button onclick="deleteExpense('<%= el.id %>')">delete</button>
-      <a href="/expense-update/<%= el.id %>">Update</a>
+    <div class="Card_Container">
+      <% expenses.forEach(el => { %>
+      <div class="card">
+        <h2>Id: <%= el.id %></h2>
+        <h2>Category: <%= el.category %></h2>
+        <h2>Price: <%= el.price %></h2>
+        <a href="/expense-list/<%= el.id %>">Show details</a>
+        <button onclick="deleteExpense('<%= el.id %>')">delete</button>
+        <a href="/expense-update/<%= el.id %>">Update</a>
+      </div>
+      <% }) %>
     </div>
-    <% }) %>
-
     <script src="/js/deleteExpense.js"></script>
   </body>
 </html>

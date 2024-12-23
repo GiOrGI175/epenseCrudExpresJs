@@ -11,7 +11,11 @@ app.use('/expenses', expenseRouter);
 
 app.get('/expense-list', async (req, res) => {
   const expenses = await readFile('expenses.json', true);
-  res.render('pages/listAllExpenses.ejs', { expenses });
+  res.render('pages/expensesList.ejs', { expenses });
+});
+
+app.get('/create-expense', (req, res) => {
+  res.render('pages/expensesCreate.ejs');
 });
 
 app.get('/', (req, res) => {
