@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>All Expenses</title>
     <link rel="stylesheet" href="/css/expense.css" />
   </head>
   <body>
-    <h1>all expenses</h1>
-    <a href="/create-expense">Crate new Expense</a>
+    <h1>All Expenses</h1>
+    <a href="/create-expense">Create New Expense</a>
     <div class="Card_Container">
       <% expenses.forEach(el => { %>
       <div class="card">
@@ -16,11 +16,22 @@
         <h2>Category: <%= el.category %></h2>
         <h2>Price: <%= el.price %></h2>
         <a href="/expense-list/<%= el.id %>">Show details</a>
-        <button onclick="deleteExpense('<%= el.id %>')">delete</button>
+        <button onclick="deleteExpense('<%= el.id %>')">Delete</button>
         <a href="/expense-update/<%= el.id %>">Update</a>
       </div>
       <% }) %>
     </div>
+
+    <div>
+      <% if (page > 1) { %>
+      <a href="/expense-list?page=<%= page - 1 %>&limit=<%= limit %>"
+        >Previous</a
+      >
+      <% } %> <% if (page < totalPages) { %>
+      <a href="/expense-list?page=<%= page + 1 %>&limit=<%= limit %>">Next</a>
+      <% } %>
+    </div>
+
     <script src="/js/deleteExpense.js"></script>
   </body>
 </html>

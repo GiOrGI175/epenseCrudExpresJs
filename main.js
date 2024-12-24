@@ -11,7 +11,21 @@ app.use('/expenses', expenseRouter);
 
 app.get('/expense-list', async (req, res) => {
   const expenses = await readFile('expenses.json', true);
-  res.render('pages/expensesList.ejs', { expenses });
+
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 8;
+
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+  const paginatedExpenses = expenses.slice(startIndex, endIndex);
+
+  res.render('pages/expensesList.ejs', {
+    expenses: paginatedExpenses,
+    page: page,
+    limit: limit,
+    totalItems: expenses.length,
+    totalPages: Math.ceil(expenses.length / limit),
+  });
 });
 
 app.get('/expense-list/:id', async (req, res) => {
