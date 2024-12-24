@@ -12,6 +12,14 @@ body {
   background-color: rgb(72, 72, 72);
 }
 
+a {
+  color: black;
+}
+a:hover {
+  color: white;
+  transition: all 0.5s ease;
+}
+
 .Card_Container {
   width: 100%;
   display: flex;
@@ -54,4 +62,31 @@ body {
 .pagination span {
   margin: 0 10px;
   font-weight: bold;
+}
+
+header {
+  background-color: #333;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
 }

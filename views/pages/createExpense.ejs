@@ -6,6 +6,8 @@
     <title>Document</title>
   </head>
   <body>
+    <%- include('../partials/header') %>
+
     <h1>Create new Expense</h1>
     <a href="/expense-list">Back to list</a>
     <form>
@@ -13,6 +15,8 @@
       <input type="number" name="price" placeholder="price" />
       <button>Create New Expense</button>
     </form>
+
+    <%- include('../partials/footer') %>
 
     <script src="/js/createExpense.js"></script>
   </body>
